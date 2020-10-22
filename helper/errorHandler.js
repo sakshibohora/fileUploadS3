@@ -1,0 +1,19 @@
+import { errorResponse } from '../helper';
+
+// eslint-disable-next-line no-unused-vars
+const errorHandler = (err, req, res, next) => { // next is req
+  if (err.errors) {
+    let messages = err.errors.map(e => e.field);
+    if (err && err.message === 'validation error') {
+      if (messages.length && messages.length > 1) {
+        messages = `${messages.join(', ')} are required fields`;
+      } else {
+        messages = `${messages.join(', ')} is required field`;
+      }
+    }
+    return errorResponse(req, res, messages, 400, err);
+  }
+  return errorResponse(req, res, err.message, 400, err);
+};
+
+export default errorHandler;
