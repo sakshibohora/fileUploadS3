@@ -56,7 +56,7 @@ const getCred = async () => {
 };
 
 export default class S3Store {
-  constructor(bucket = process.env.AWS_BUCKET_NAME) {
+  constructor(bucket = 'learnings3bucket12') {
     const credentials = getCred();
     accessKeyId = credentials.AccessKeyId;
     secretAccessKey = credentials.SecretAccessKey;
@@ -164,5 +164,8 @@ app.post(
   uploads,
   uploadFiles,
 );
-
-module.exports = app;
+app.get("/url", (req, res, next) => {
+ res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+});
+module.exports = app
+;
