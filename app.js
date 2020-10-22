@@ -2,6 +2,7 @@ import AWS from 'aws-sdk';
 import dotenv from 'dotenv';
 import express from 'express';
 import multer from 'multer';
+import path from 'path';
 import { successResponse, errorResponse } from './helper';
 
 dotenv.config();
@@ -13,6 +14,16 @@ const uploads = upload.fields([{ name: 'file', maxCount: 10 }]);
 AWS.config.region = 'ap-south-1a';
 let accessKeyId;
 let secretAccessKey;
+
+const uniqueId = (length = 13) => {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i += 1) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+};
 
 const getEC2Rolename = () => {
   const promise = new Promise((resolve, reject) => {
@@ -69,7 +80,7 @@ export default class S3Store {
       this.s3 = new AWS.S3();
       this.bucket = bucket;
     } else {
-      console.log('not Found');
+      console.log('not Found')
     }
   }
 
@@ -167,5 +178,6 @@ app.post(
 app.get("/url", (req, res, next) => {
  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 });
-module.exports = app
-;
+module.exports = app;
+
+
