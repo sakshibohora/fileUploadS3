@@ -4,7 +4,7 @@ import {
   successResponse, errorResponse, uniqueId,
 } from '../../helper';
 
-AWS.config.region = 'ap-south-1a';
+//AWS.config.region = 'ap-south-1a';
 
 const getEC2Rolename = () => {
   const promise = new Promise((resolve, reject) => {
@@ -38,7 +38,7 @@ const getEC2Credentials = (rolename) => {
 export const upload = async (key, file) => {
   const s3 = new AWS.S3();
   const params = {
-    Bucket: 'test',
+    Bucket: 'demo-sakshi-ccp',
     Key: `${key}/${file.uniquename}`,
     Body: file.buffer, // req.file.path
     ContentType: file.mimetype,
