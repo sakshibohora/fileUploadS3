@@ -1,31 +1,21 @@
 {
-  "name": "file-upload",
-  "version": "1.0.0",
-  "description": "FILE UPLOAD USING TEMPORARY AWS CREDS",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
-  },
   "dependencies": {
-    "@babel/preset-env": "^7.11.0",
-    "@babel/register": "^7.10.5",
-    "aws-sdk": "^2.739.0",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "aws-sdk": "^2.776.0",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
     "express": "^4.17.1",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.6",
     "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
-    "@babel/plugin-transform-runtime": "^7.11.0",
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
   }
 }
